@@ -1,6 +1,6 @@
 {
   "name": "displacement-slideshow",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "source": "src/displacement-slideshow.js",
   "module": "dist/displacement-slideshow.es.js",
   "main": "dist/displacement-slideshow.js",
@@ -14,7 +14,7 @@
     "build": "microbundle build --globals three=THREE,gsap/TweenMax=TweenMax",
     "watch": "microbundle watch --globals three=THREE,gsap/TweenMax=TweenMax",
     "publish": "npm publish --access public",
-    "minify": "uglifyjs --mangle --compress -- js/slideshow.js > js/slideshow.min.js",
+    "minify": "uglifyjs --mangle --compress -- dist/displacement-slideshow.js > js/slideshow.min.js",
     "prettify": "prettier --trailing-comma=es5 --single-quote --print-width=120 --write ./js/slideshow.js"
   },
   "files": [
@@ -23,5 +23,19 @@
   "dependencies": {
     "gsap": "^2.0.2",
     "three": "^0.137.0"
-  }
+  },
+  "description": "Javascript library to build slideshow of images with a displacement effect on transition.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/8BigFish88/displacement-slideshow.git"
+  },
+  "keywords": [
+    "displacement-slideshow"
+  ],
+  "author": "8BigFish88",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/8BigFish88/displacement-slideshow/issues"
+  },
+  "homepage": "https://github.com/8BigFish88/displacement-slideshow#readme"
 }

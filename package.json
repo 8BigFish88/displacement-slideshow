@@ -1,6 +1,6 @@
 {
   "name": "displacement-slideshow",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "source": "src/displacement-slideshow.js",
   "module": "dist/displacement-slideshow.es.js",
   "main": "dist/displacement-slideshow.js",

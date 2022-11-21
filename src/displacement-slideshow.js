@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import gsap from 'gsap/all';
+import { gsap } from "gsap";
 
 export default function (opts) {
 
@@ -70,7 +70,7 @@ void main() {
   var commonAngle = firstDefined(opts.angle, Math.PI / 4); // 45 degrees by default, so grayscale images work correctly
   var angle1 = firstDefined(opts.angle1, commonAngle);
   var angle2 = firstDefined(opts.angle2, -commonAngle * 3);
-  var easing = firstDefined(opts.easing, gsap.easeOut);
+  var easing = firstDefined(opts.easing, "power1.inOut");
   var speedIn = firstDefined(opts.speedIn, opts.speed, 1.6);
   var speedOut = firstDefined(opts.speedOut, opts.speed, 1.2);
   var transitionDelay = firstDefined(opts.transitionDelay, 3000);

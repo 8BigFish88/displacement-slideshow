@@ -1,6 +1,6 @@
 {
   "name": "displacement-slideshow",
-  "version": "1.2.5",
+  "version": "1.2.7",
   "source": "src/displacement-slideshow.js",
   "module": "dist/displacement-slideshow.es.js",
   "main": "dist/displacement-slideshow.js",
@@ -14,7 +14,7 @@
     "build": "microbundle build --globals three=THREE",
     "watch": "microbundle watch --globals three=THREE",
     "publish": "npm publish --access public",
-    "minify": "uglifyjs --mangle --compress -- dist/displacement-slideshow.js > js/slideshow.min.js",
+    "minify": "uglifyjs --mangle --compress -- dist/displacement-slideshow.js > js/displacement-slideshow.min.js",
     "prettify": "prettier --trailing-comma=es5 --single-quote --print-width=120 --write ./js/slideshow.js"
   },
   "files": [

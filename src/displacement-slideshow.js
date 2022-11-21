@@ -228,6 +228,12 @@ void main() {
     slideshowId && clearInterval(slideshowId);
   }
 
+  function stopSlideshowWithDelay() {
+    setTimeout(() => {
+      slideshowId && clearInterval(slideshowId);
+    }, 8000);
+  }
+
   function setImage(index) {
     currentImage = index
     nextImage = (index == (images.length - 1)) ? 0 : (index + 1)
@@ -285,5 +291,6 @@ void main() {
   this.playSlideshow = playSlideshow;
   this.stopSlideshow = stopSlideshow;
   this.previous = transitionOut;
+  this.stopSlideshowWithDelay = stopSlideshowWithDelay;
 };
 

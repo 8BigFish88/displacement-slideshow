@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import TweenMax from 'gsap/TweenMax';
+import gsap from 'gsap/all';
 
 export default function (opts) {
 
@@ -70,9 +70,9 @@ void main() {
   var commonAngle = firstDefined(opts.angle, Math.PI / 4); // 45 degrees by default, so grayscale images work correctly
   var angle1 = firstDefined(opts.angle1, commonAngle);
   var angle2 = firstDefined(opts.angle2, -commonAngle * 3);
+  var easing = firstDefined(opts.easing, gsap.easeOut);
   var speedIn = firstDefined(opts.speedIn, opts.speed, 1.6);
   var speedOut = firstDefined(opts.speedOut, opts.speed, 1.2);
-  var easing = firstDefined(opts.easing, Expo.easeOut);
   var transitionDelay = firstDefined(opts.transitionDelay, 3000);
 
   var currentImage = 0;
@@ -114,7 +114,7 @@ void main() {
   var imageAspect = imagesRatio;
 
   var render = function () {
-    // This will be called by the TextureLoader as well as TweenMax.
+    // This will be called by the TextureLoader as well as gsap.
     renderer.render(scene, camera);
   };
 
@@ -194,7 +194,8 @@ void main() {
   }
 
   function transitionIn() {
-    TweenMax.to(mat.uniforms.dispFactor, speedIn, {
+    gsap.to(mat.uniforms.dispFactor,  {
+      duration: speedIn,
       value: 1,
       ease: easing,
       onUpdate: render,
@@ -203,7 +204,8 @@ void main() {
   }
 
   function transitionOut() {
-    TweenMax.to(mat.uniforms.dispFactor, speedOut, {
+    gsap.to(mat.uniforms.dispFactor, {
+      duration: speedOut,
       value: 0,
       ease: easing,
       onUpdate: render,

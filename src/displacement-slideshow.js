@@ -82,6 +82,7 @@ void main() {
   var geometry = undefined;
   var texture1 = null;
   var texture2 = null;
+  var textures = [];
   var disp = null;
   var loader = null;
   var slideshowId = null;
@@ -214,13 +215,15 @@ void main() {
   }
 
   function playSlideshow() {
+    loadTexturesAllImages();
     var index = 0
     setImage(index)
     slideshowId = setInterval(() => {
       transitionIn()
       index = nextImage
       setImage(index)
-      loadTexturesImages()
+      texture1 = textures[index].texture1;
+      texture2 = textures[index].texture2;
       setMaterialForNextTransition()
     }, transitionDelay);
     return slideshowId;
@@ -233,6 +236,27 @@ void main() {
   function setImage(index) {
     currentImage = index
     nextImage = (index == (images.length - 1)) ? 0 : (index + 1)
+  }
+
+
+  function loadTexturesAllImages() {
+    textures = images.map((image, currentIndex) => {
+      const nextImageIndex = (currentIndex == (images.length - 1)) ? 0 : (currentIndex + 1)
+
+      texture1 = texture2 || loader.load(image, render);
+      texture2 = loader.load(images[nextImageIndex], render);
+
+      texture1.magFilter = texture2.magFilter = THREE.LinearFilter;
+      texture1.minFilter = texture2.minFilter = THREE.LinearFilter;
+
+      return {
+        currentIndex,
+        texture1,
+        texture2
+      }
+    })
+
+
   }
 
   function loadTexturesImages() {
